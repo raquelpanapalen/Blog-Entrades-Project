@@ -5,15 +5,19 @@
  */
 package edu.upc.etsetb.poo.blog.controlador;
 
+import edu.upc.etsetb.poo.blog.domini.EntradesBlog;
+
 /**
  *
  * @author rachel
  */
 public class Controlador {
+    
+    private EntradesBlog entrades_blog;
     /* Constructor. Inicialitza les entrades del blog, crea i afegeix 
      * tres entrades per fer proves d'execució. */
     public Controlador(){
-        
+        entrades_blog = new EntradesBlog();
     }
     //Mostra l'index de les entrades del blog.
     public void index(){
