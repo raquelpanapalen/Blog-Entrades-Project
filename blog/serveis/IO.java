@@ -5,10 +5,35 @@
  */
 package edu.upc.etsetb.poo.blog.serveis;
 
+import java.util.Scanner;
+
 /**
  *
  * @author rachel
  */
+
+/* Aquesta classe encapsula les operacions d'entrada sortida. Lectura de teclat 
+ * i escritura en pantalla.
+ */
 public class IO {
+    
+    public static Scanner teclat;
+    
+    public IO(){
+        teclat = new Scanner(System.in);
+    }
+    
+    //Mostra el text per la pantalla.
+    public static void mostraText(String text){
+        System.out.println(text);
+    }
+    
+    /* Retorna el text que l'usuari introdueix per teclat. Aquest metode usa 
+     * l'atribut static teclat de classe Scanner.
+     */
+    public static String llegeixText(){
+        return teclat.nextLine();
+    }
+    
     
 }
