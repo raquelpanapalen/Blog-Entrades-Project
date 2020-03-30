@@ -1,0 +1,57 @@
+typedef struct
+{
+   int color;
+   int fig;
+}tcarta;
+
+typedef struct
+{
+   int nc;
+   tcarta cartas[MC];
+}tcartas;
+
+typedef struct
+{
+   char nombre[MN];
+   tcartas mano;
+}tjugador;
+
+typedef struct
+{
+   int num_jug;
+   tjugador lista_jug[MJ];
+}tjugadores;
+
+
+ACCIONES:
+Carta:
+• Mostrar
+• Comparar dos cartas
+• Mostrar posibles jugadas
+
+Jugador:
+• Seleccionar jugada (aleatoria en caso de bot)
+• Inicializar variables (n° jug, ...)
+
+Mano:
+• Repartir cartas
+• Mostrar
+• Contador cartas
+• Sumar/restar cartas a la mano
+
+Mazo de robar:
+• Mostrar
+• Mezclar
+• Recuperar cartas del mazo de descartes
+• Eliminar cartas cuando se roba
+
+Mazo descartes:
+• Mostrar
+• Contador cartas
+
+Especiales/Otras:
+• Invertir sentido juego
+• Saltar turno
+• Seleccionar color
+• Obligar a robar
+• Finalizar partida
