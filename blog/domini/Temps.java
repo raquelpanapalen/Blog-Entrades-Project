@@ -24,7 +24,10 @@ public class Temps {
      */
     public Temps(String temps){
         dia = temps.split(" ")[0];
-        hora = temps.split(" ")[1];
+        if (temps.split(" ").length==1)
+            hora = "";
+        else
+            hora = temps.split(" ")[1]; 
     }
     
     /* Assigna a this el dia i l'hora de l'instant actual. 
@@ -53,8 +56,7 @@ public class Temps {
     public int comparaTemps(Temps altre){
         if (this.comparaDia(altre)!=0)
             return this.comparaDia(altre);
-        else
-            return this.hora.compareTo(altre.hora);
+        return this.hora.compareTo(altre.hora);
     }
     
     
