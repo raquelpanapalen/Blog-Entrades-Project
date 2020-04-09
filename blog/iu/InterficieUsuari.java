@@ -34,28 +34,35 @@ public class InterficieUsuari {
     public void executaOpcio(String op){
         switch (op.charAt(0)) {
             case 'i':
+            case 'I':
                 controlador.index();
                 break;
             case 'm':
+            case 'M':
                 String[] parts=op.split(" ");
                 int num=Integer.parseInt(parts[1]);
                 controlador.mostraEntrada(num);
                 break;
             case 'n':
+            case 'N':
                 controlador.novaEntrada();
                 break;
             case 'e':
+            case 'E':
                 String[] partes=op.split(" ");
                 int n=Integer.parseInt(partes[1]);
                 controlador.eliminaEntrada(n);
                 break;
             case 'o':
+            case 'O':
                 controlador.ordena();
                 break;
             case 'd':
+            case 'D':
                 controlador.dates();
                 break;
             case 't':
+            case 'T':
                 controlador.mostraEntrades();
                 break;
             default:
@@ -66,7 +73,7 @@ public class InterficieUsuari {
     //Cicle principal d'execució: mostra opcions, llegeix opcio i executa opcio.
     public void cicle(){
         String opc="x";
-        while(opc.charAt(0)!='f'){
+        while(!String.valueOf(opc.charAt(0)).equalsIgnoreCase("f")){
             mostraOpcions();
             opc=IO.llegeixText();
             executaOpcio(opc);
