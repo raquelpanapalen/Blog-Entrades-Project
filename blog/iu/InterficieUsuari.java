@@ -85,6 +85,7 @@ public class InterficieUsuari {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        IO io = new IO();
         InterficieUsuari iu=new InterficieUsuari();
         System.out.println("Hola!");
         iu.cicle();        
