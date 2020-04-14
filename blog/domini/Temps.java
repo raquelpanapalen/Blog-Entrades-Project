@@ -49,7 +49,7 @@ public class Temps {
     }
     
     /* Compara el dia i hora de this amb el dia i hora d'altre. Retorna un 
-     * valor > 0 si el dia i l'hora d'aquest objecte (this) son posteriors al 
+     * valor > 0 si el dia i l'hora d'aquest objecte (this) són posteriors al 
      * dia i l'hora d'altre; 0 si son el mateixos, i un enter negatiu si son 
      * anteriors al dia i l'hora d'altre. 
      */
