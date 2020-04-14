@@ -37,7 +37,11 @@ public class Controlador {
      * Parameters: num - identificador de l'entrada
      */
     public void mostraEntrada(int num){
-        IO.mostraText(entrades_blog.agafa(num).toString());
+        Entrada e = entrades_blog.agafa(num);
+        if (e!=null)
+            IO.mostraText(entrades_blog.agafa(num).toString());
+        else
+            IO.mostraText("Aquesta entrada no existeix\n");
     }
     
     /* Demana el titol, el text, i el dia i hora a l'usuari, crea una entrada 
@@ -63,7 +67,11 @@ public class Controlador {
      * Parameters: num - identificador de l'entrada a eliminar
      */
     public void eliminaEntrada(int num){
-        IO.mostraText("Elimino: "+entrades_blog.elimina(num).toString());
+        Entrada e = entrades_blog.elimina(num);
+        if (e!=null)
+            IO.mostraText("Elimino: "+entrades_blog.elimina(num).toString());
+        else
+            IO.mostraText("Aquesta entrada no existeix\n");
     }
     
     /* Demana el criteri d'ordenació a l'usuari, l'assigna, i ordena segons el 
