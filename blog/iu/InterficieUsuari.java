@@ -54,9 +54,9 @@ public class InterficieUsuari {
                     break;
                 case 'm':
                     String[] parts = op.split(" ");
-                    if ("mostra".contains(parts[0]) && parts.length==2){
+                    if ("mostra".contains(parts[0]) && parts.length==2)
                         controlador.mostraEntrada(Integer.parseInt(parts[1]));
-                    }else
+                    else
                         IO.mostraText("Opció incorrecta\n");
                     break;
                 case 'n':
@@ -67,9 +67,9 @@ public class InterficieUsuari {
                     break;
                 case 'e':
                     String[] partes = op.split(" ");
-                    if ("elimina".contains(partes[0]) && partes.length==2){
+                    if ("elimina".contains(partes[0]) && partes.length==2)
                         controlador.eliminaEntrada(Integer.parseInt(partes[1]));
-                    }else
+                    else
                         IO.mostraText("Opció incorrecta\n");
                     break;
                 case 'o':
