@@ -17,15 +17,13 @@ import java.util.Scanner;
  */
 public class IO {
     
-    public static Scanner teclat;
+    public static Scanner teclat = new Scanner(System.in);
     
-    public IO(){
-        teclat = new Scanner(System.in);
-    }
+    public IO(){}
     
     //Mostra el text per la pantalla.
     public static void mostraText(String text){
-        System.out.println(text);
+        System.out.print(text);
     }
     
     /* Retorna el text que l'usuari introdueix per teclat. Aquest metode usa 
