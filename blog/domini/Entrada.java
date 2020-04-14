@@ -7,7 +7,7 @@ package edu.upc.etsetb.poo.blog.domini;
 
 /**
  *
- * @author silvi
+ * @author rachel
  */
 
 /* Gestiona una Entrada del Blog. Una Entrada té un id, un titol, un text, i el 
@@ -44,7 +44,7 @@ public class Entrada {
         return id;
     }
     
-    //Getter titol
+    //Geter titol
     public String getTitol(){
         return titol;
     }
@@ -61,23 +61,21 @@ public class Entrada {
      * criteri no es ni "num" ni "titol" retorna 0.
      */
     public static int compare(Entrada una, Entrada altra, String criteri){
-        if(criteri.equals("num")){
-            if(una.getId()>altra.getId()){
-                return 1;
-            }
-            else if(una.getId()<altra.getId()){
-                return -1;
-            }
+        switch (criteri) {
+            case "num":
+                return una.getId()-altra.getId();
+            case "titol":
+                return una.getTitol().compareTo(altra.getTitol());
+            default:
+                return 0;
         }
-        if(criteri.equals("titol")){
-            return una.getTitol().compareTo(altra.getTitol());
-        }
-        return 0;
     }
     
     //Retorna un string en el format "id titol text dia hora"
     @Override
     public String toString(){
-        return id+" "+titol+" "+text+" "+temps.toString()+"\n";
-    }    
+        return this.getId()+" "+this.getTitol()+" "+this.text+" "+
+                this.getQuan().toString()+"\n";
+    }
+    
 }
