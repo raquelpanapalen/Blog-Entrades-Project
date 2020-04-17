@@ -42,63 +42,39 @@ public class InterficieUsuari {
     
     //Per cada valor d'op, executa el mètode corresponent del controlador.
     public void executaOpcio(String op){
-        if (op.equals(""))
-            IO.mostraText("Opció incorrecta\n");
-        else{
-            switch (op.charAt(0)){
-                case 'i':
-                    if ("index".contains(op))
-                        controlador.index();
-                    else
-                        IO.mostraText("Opció incorrecta\n");
-                    break;
-                case 'm':
-                    String[] parts = op.split(" ");
-                    if ("mostra".contains(parts[0]) && parts.length==2)
-                        controlador.mostraEntrada(Integer.parseInt(parts[1]));
-                    else
-                        IO.mostraText("Opció incorrecta\n");
-                    break;
-                case 'n':
-                    if ("nova".contains(op))
-                        controlador.novaEntrada();
-                    else
-                        IO.mostraText("Opció incorrecta\n");
-                    break;
-                case 'e':
-                    String[] partes = op.split(" ");
-                    if ("elimina".contains(partes[0]) && partes.length==2)
-                        controlador.eliminaEntrada(Integer.parseInt(partes[1]));
-                    else
-                        IO.mostraText("Opció incorrecta\n");
-                    break;
-                case 'o':
-                    if ("ordena".contains(op))
-                        controlador.ordena();
-                    else
-                        IO.mostraText("Opció incorrecta\n");
-                    break;
-                case 'd':
-                    if ("dates".contains(op))
-                        controlador.dates();
-                    else
-                        IO.mostraText("Opció incorrecta\n");
-                    break;
-                case 't':
-                    if ("totes".contains(op))
-                        controlador.mostraEntrades();
-                    else
-                        IO.mostraText("Opció incorrecta\n");
-                    break; 
-                case 'f':
-                    if (!("fi".contains(op)))
-                        IO.mostraText("Opció incorrecta\n");
-                    break;
-                default:
-                    IO.mostraText("Opció incorrecta\n");
-                    break;
-            }
+        if (!(op.equals(""))) {
+            String[] parts = op.split(" ");
+            if (op.charAt(0)=='i' && "index".contains(op))
+                controlador.index();
+            
+            else if (op.charAt(0)=='n' && "nova".contains(op))
+                controlador.novaEntrada();
+            
+            else if (op.charAt(0)=='o' && "ordena".contains(op))
+                controlador.ordena();
+            
+            else if (op.charAt(0)=='d' && "dates".contains(op))
+                controlador.dates();
+            
+            else if (op.charAt(0)=='t' && "totes".contains(op))
+                controlador.mostraEntrades();
+            
+            else if (op.charAt(0)=='m' && "mostra".contains(parts[0])
+                    && parts.length==2)
+                controlador.mostraEntrada(Integer.parseInt(parts[1]));
+            
+            else if (op.charAt(0)=='e' && "elimina".contains(parts[0])
+                    && parts.length==2)
+                controlador.eliminaEntrada(Integer.parseInt(parts[1]));
+            
+            else if (op.charAt(0)=='f' && "fi".contains(op))
+                IO.mostraText("Adeu!\n");
+            
+            else
+                IO.mostraText("Opció incorrecta\n");
         }
+        else
+            IO.mostraText("Opció incorrecta\n");
     }
     
     //Cicle principal d'execució: mostra opcions, llegeix opcio i executa opcio.
@@ -120,6 +96,5 @@ public class InterficieUsuari {
         InterficieUsuari iu = new InterficieUsuari();
         IO.mostraText("Hola!\n");
         iu.cicle();        
-        IO.mostraText("Adeu!\n"); 
     }
 }
