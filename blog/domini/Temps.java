@@ -23,11 +23,12 @@ public class Temps {
      * temps = "aaaa-mm-dd hh:mm:ss"
      */
     public Temps(String temps){
-        dia = temps.split(" ")[0];
-        if (temps.split(" ").length==1)
-            hora = "";
+        String parts[] = temps.split(" ");
+        this.dia = parts[0];
+        if (parts.length==1)
+            this.hora = "";
         else
-            hora = temps.split(" ")[1]; 
+            this.hora = parts[1]; 
     }
     
     /* Assigna a this el dia i l'hora de l'instant actual. 
@@ -35,8 +36,9 @@ public class Temps {
      * en el format "aaaa-mm-ddThh:mm:ss"
      */
     public void ara(){
-        this.dia=LocalDateTime.now().toString().split("T")[0];
-        this.hora=LocalDateTime.now().toString().split("T")[1];
+        String parts[] = LocalDateTime.now().toString().split("T");
+        this.dia = parts[0];
+        this.hora = parts[1];
     }
     
     /* Compara el dia de this amb el dia d'altre. Retorna un enter negatiu si 
