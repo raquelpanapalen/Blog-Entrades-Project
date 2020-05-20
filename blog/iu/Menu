@@ -5,10 +5,39 @@
  */
 package edu.upc.etsetb.poo.blog.iu;
 
+import edu.upc.etsetb.poo.blog.controlador.Controlador;
+import edu.upc.etsetb.poo.blog.serveis.IO;
+import edu.upc.etsetb.poo.blog.excepcions.BlogException;
 /**
  *
  * @author silvi
  */
 public abstract class Menu {
+    protected Controlador contr;
     
+    public Menu(Controlador contr){
+        this.contr= contr;
+    }
+    
+    public abstract void mostraOpcions();
+    
+    public String demanaOpcio(){
+        String op="";
+        IO.mostraText("Introdueix una opció: ");
+        op = IO.llegeixText().toLowerCase().trim();
+        return op;
+    }
+    
+    //Per cada valor d'op, executa el mètode corresponent del controlador.
+    public abstract void executaOpcio(String op) throws BlogException;
+    
+    //Cicle principal d'execució: mostra opcions, llegeix opcio i executa opcio.
+    public void cicle(){
+        String op="";
+        while (!(op.equalsIgnoreCase("f") || op.equalsIgnoreCase("fi"))){
+            mostraOpcions();            
+            op=demanaOpcio();
+            //executaOpcio(op);        falta implementacion excepciones        
+        }
+    }
 }
