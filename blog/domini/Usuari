@@ -5,10 +5,22 @@
  */
 package edu.upc.etsetb.poo.blog.domini;
 
+import edu.upc.etsetb.poo.blog.controlador.Controlador;
+import edu.upc.etsetb.poo.blog.iu.Menu;
 /**
  *
  * @author silvi
  */
-public class Usuari {
+public abstract class Usuari {
+    protected Controlador contr;
+    protected Menu menu;
     
+    public Usuari(Controlador contr){
+        this.contr= contr;
+        this.menu= null;
+    }
+    
+    public Menu getMenu(){
+        return menu;
+    }
 }
