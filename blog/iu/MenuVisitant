@@ -5,10 +5,24 @@
  */
 package edu.upc.etsetb.poo.blog.iu;
 
+import edu.upc.etsetb.poo.blog.excepcions.BlogException;
+import edu.upc.etsetb.poo.blog.controlador.Controlador;
 /**
  *
  * @author silvi
  */
 public class MenuVisitant extends Menu{
+
+    public MenuVisitant(Controlador contr){
+        super(contr);
+    }
+    
+    @Override
+    public void mostraOpcions() {
+    }
+
+    @Override
+    public void executaOpcio(String op) throws BlogException {
+    }
     
 }
