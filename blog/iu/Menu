@@ -40,7 +40,7 @@ public abstract class Menu {
             try{
                 executaOpcio(op);
             }catch(BlogException e){
-                IO.mostraText("Opció incorrecta\n");
+                IO.mostraText("Opció incorrecta!\n");
             }        
         }
     }
