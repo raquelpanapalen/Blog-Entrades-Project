@@ -5,10 +5,61 @@
  */
 package edu.upc.etsetb.poo.blog.iu;
 
+import edu.upc.etsetb.poo.blog.excepcions.BlogException;
+import edu.upc.etsetb.poo.blog.controlador.Controlador;
 /**
  *
  * @author silvi
  */
 public class MenuRegistrat extends Menu{
+
+    public MenuRegistrat(Controlador contr){
+        super(contr);
+    }
+
+    @Override
+    public void mostraOpcions() {
+        System.out.print("Opcions:\n\tindex\n\tmostra <num>\n\tnova\n\telimina <num>\n\tordena\n\tdates\n\ttotes\n\tfi\nIntrodueix una opció: ");
+    }
+
+    @Override
+    public void executaOpcio(String op) throws BlogException {
+        switch (op.charAt(0)) {
+            case 'i':
+            case 'I':
+                contr.index();
+                break;
+            case 'm':
+            case 'M':
+                String[] parts=op.split(" ");
+                int num=Integer.parseInt(parts[1]);
+                contr.mostraEntrada(num);
+                break;
+            case 'n':
+            case 'N':
+                contr.novaEntrada();
+                break;
+            case 'e':
+            case 'E':
+                String[] partes=op.split(" ");
+                int n=Integer.parseInt(partes[1]);
+                contr.eliminaEntrada(n);
+                break;
+            case 'o':
+            case 'O':
+                contr.ordena();
+                break;
+            case 'd':
+            case 'D':
+                contr.dates();
+                break;
+            case 't':
+            case 'T':
+                contr.mostraEntrades();
+                break;
+            default:
+                break;
+        }
+    }
     
 }
