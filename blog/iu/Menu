@@ -37,7 +37,11 @@ public abstract class Menu {
         while (!(op.equalsIgnoreCase("f") || op.equalsIgnoreCase("fi"))){
             mostraOpcions();            
             op=demanaOpcio();
-            //executaOpcio(op);        falta implementacion excepciones        
+            try{
+                executaOpcio(op);
+            }catch(BlogException e){
+                IO.mostraText("Opció incorrecta\n");
+            }        
         }
     }
 }
