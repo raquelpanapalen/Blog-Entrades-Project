@@ -10,5 +10,10 @@ package edu.upc.etsetb.poo.blog.excepcions;
  * @author silvi
  */
 public class BlogException extends Exception{
+    public BlogException(){
+    }
     
+    public BlogException(String missatge){
+        super(missatge);
+    }
 }
