@@ -53,15 +53,11 @@ public class MenuRegistrat extends Menu{
             else if (op.charAt(0)=='f' && "fi".contains(op))
                 IO.mostraText("Adeu!\n");
 
-            else{
-                IO.mostraText("Opció incorrecta\n");
+            else                
                 throw new BlogException();
-            }
         }
-        else{
-            IO.mostraText("Opció incorrecta\n");
+        else
             throw new BlogException();
-        }
     }
     
 }
