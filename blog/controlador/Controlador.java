@@ -40,18 +40,17 @@ public class Controlador {
         Entrada e5 = new Entrada("t5", "x5", "2019-05-15");
                 
         //Usuaris registrats de prova
-        Registrat user1 = new Registrat(this, "usr1", "password1");
-        Registrat user2 = new Registrat(this, "usr2", "password2");
+        Registrat usr1 = new Registrat(this, "usr1", "password1");
+        Registrat usr2 = new Registrat(this, "usr2", "password2");
         
         /* Afegir entrades de prova al blog dels usuaris de prova i afegir
          * usuaris de prova al mapa de registrats
          */
-        user1.AfageixEntrada(e1);
-        user1.AfageixEntrada(e3);
-        user2.AfageixEntrada(e5);
-        this.registrats.put("usr1", user1);
-        this.registrats.put("usr2", user2);
-        
+        usr1.AfageixEntrada(e1);
+        usr1.AfageixEntrada(e3);
+        usr2.AfageixEntrada(e5);
+        this.registrats.put("usr1", usr1);
+        this.registrats.put("usr2", usr2);         
     }
     
     //Mostra l'index de les entrades del blog.
@@ -161,7 +160,7 @@ public class Controlador {
         String pass = IO.llegeixText().trim();
         Registrat usuari = this.registrats.get(nom);
         if (usuari==null || !usuari.verificaPassword(pass))
-            throw new BlogException("Usuari o password incorrecte!");
+            throw new BlogException();
         this.usuari_actual = usuari;
         this.blog_actual = usuari.getBlog();
         usuari.getMenu().cicle();
@@ -180,8 +179,12 @@ public class Controlador {
     //Mostra els noms d'usuaris.
     public void mostraUsuaris(){
         String s="[";
+        int i=1;
         for (String nom : this.registrats.keySet()){
-            s += nom + ", ";
+            s += nom;
+            if(i<this.registrats.size())
+                s+=", ";
+            i++;
         }
         s+="]\n";
         IO.mostraText(s);
