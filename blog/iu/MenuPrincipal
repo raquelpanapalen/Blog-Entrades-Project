@@ -7,6 +7,7 @@ package edu.upc.etsetb.poo.blog.iu;
 
 import edu.upc.etsetb.poo.blog.excepcions.BlogException;
 import edu.upc.etsetb.poo.blog.controlador.Controlador;
+import edu.upc.etsetb.poo.blog.serveis.IO;
 /**
  *
  * @author silvi
@@ -19,10 +20,34 @@ public class MenuPrincipal extends Menu{
 
     @Override
     public void mostraOpcions() {
+        System.out.println("Opcions:\n\tvisitant\n\tinicia sessio\n\tregistra't\n\tfi");
     }
 
     @Override
     public void executaOpcio(String op) throws BlogException {
-    }
-    
+        if (!(op.equals(""))) {
+            String[] parts = op.split(" ");
+            if (op.charAt(0)=='v' && "visitant".contains(op))
+                contr.visitant();
+
+            else if (op.charAt(0)=='i' && "inicia".contains(parts[0])){
+                try{
+                    contr.sessio();
+                }catch(BlogException e){
+                    System.out.println("Usuari o password incorrecte!");
+                }
+            }
+                
+
+            else if (op.charAt(0)=='r' && "registra't".contains(op))
+                contr.registre();
+
+            else if (op.charAt(0)=='f' && "fi".contains(parts[0]))
+                System.out.println("Adeu!");
+            else                
+                throw new BlogException();
+        }
+        else
+            throw new BlogException();
+    }   
 }
