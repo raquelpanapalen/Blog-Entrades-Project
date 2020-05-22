@@ -33,5 +33,9 @@ public class IO {
         return teclat.nextLine();
     }
     
+    //Mostra el missatge d'error per la pantalla.
+    public static void mostraError(String text){
+        System.err.println(text);
+    }
     
 }
