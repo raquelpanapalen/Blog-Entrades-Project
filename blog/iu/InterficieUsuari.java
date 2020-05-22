@@ -25,7 +25,7 @@ public class InterficieUsuari {
     //Constructor. Crea el controlador.
     public InterficieUsuari(){
         this.contr= new Controlador();
-        this.menu= new MenuRegistrat(this.contr);
+        this.menu= new MenuPrincipal(this.contr);
     }
        
     //Cicle principal d'execució: mostra opcions, llegeix opcio i executa opcio.
