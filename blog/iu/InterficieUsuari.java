@@ -12,22 +12,24 @@ import edu.upc.etsetb.poo.blog.serveis.IO;
 
 /**
  *
- * @author silvi
+ * @author rachel
  */
 
 /* Gestiona el menú principal i invoca al controlador per implementar cada una 
  * de les opcions.
  */
 public class InterficieUsuari {
-    private Controlador contr;
+    
+    private Controlador controlador;
     private Menu menu;
     
-    //Constructor. Crea el controlador.
+    //Constructor. Crea el controlador y el menu.
     public InterficieUsuari(){
-        this.contr= new Controlador();
-        this.menu= new MenuPrincipal(this.contr);
+        controlador = new Controlador();
+        menu = new MenuPrincipal(this.controlador);
     }
-       
+    
+    
     //Cicle principal d'execució: mostra opcions, llegeix opcio i executa opcio.
     public void cicle(){
         menu.cicle();
@@ -40,6 +42,7 @@ public class InterficieUsuari {
         // TODO code application logic here
         InterficieUsuari iu = new InterficieUsuari();
         IO.mostraText("Hola!\n");
-        iu.cicle();        
+        iu.cicle(); 
+        IO.mostraText("Adeu!\n");
     }
 }
