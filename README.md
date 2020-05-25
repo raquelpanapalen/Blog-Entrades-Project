@@ -5,5 +5,5 @@ Si no est√† registrat, pot accedir a la llista d'usuaris registrats des del men√
 
 Aquest projecte s'ha realitzat amb una finalitat educativa. 
 
-# UML:
+# UML
 ![](docs/UML.png)
